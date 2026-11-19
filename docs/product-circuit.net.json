@@ -1,0 +1,34 @@
+{
+  "title": "SpotClicker existing-parts product circuit",
+  "revision": "A",
+  "date": "2026-11-10",
+  "status": "connection proposal; physical qualification pending",
+  "external_capacitors": [],
+  "board_revision": "unconfirmed; Seeed V1.1 and V1.2 power blocks reviewed",
+  "components": {
+    "B1": {"part": "TinyCircuits ASR00003", "pins": {"protected_positive": "BAT_RAW", "protected_negative": "GND"}},
+    "J1": {"part": "JST SM02B-SRSS-TB(LF)(SN) on supported carrier", "status": "availability and physical polarity unconfirmed", "pins": {"verified_positive": "BAT_RAW", "verified_negative": "GND"}},
+    "S1": {"part": "C&K JS102011SAQN", "pins": {"verified_common": "BAT_RAW", "selected_ON_throw": "BAT_SW", "other_throw": "NC_S1"}},
+    "U1": {"part": "Seeed XIAO nRF52840 102010448", "pins": {"underside_BAT+": "BAT_SW", "underside_BAT-": "GND", "GND_edge": "GND", "D1_P0.03": "BUTTON", "D4_P0.04": "MOTOR_CONTROL", "USB-C": "EXISTING_USB_SOCKET_ONLY"}},
+    "R1": {"part": "CF14JT1K00", "resistance_ohms": 1000, "pins": {"1": "MOTOR_CONTROL", "2": "BASE"}},
+    "R2": {"part": "CF14JT10K0", "resistance_ohms": 10000, "pins": {"1": "BASE", "2": "GND"}},
+    "Q1": {"part": "onsemi PN2222ABU", "pins": {"B": "BASE", "C": "MOTOR_LOW", "E": "GND"}},
+    "M1": {"part": "DFRobot FIT0774", "pins": {"positive": "BAT_SW", "negative": "MOTOR_LOW"}},
+    "D1": {"part": "existing 1N4148", "status": "manufacturer/order code and polarity unconfirmed", "pins": {"cathode_banded": "BAT_SW", "anode": "MOTOR_LOW"}},
+    "S2": {"part": "normally-open momentary button", "status": "usable physical part missing", "pins": {"contact_1": "BUTTON", "contact_2": "GND"}}
+  },
+  "firmware_requirements": {
+    "motor_pin": "D4",
+    "motor_drive": "OUTPUT_S0H1, LOW before enabling output",
+    "button_pin": "D1 INPUT_PULLUP",
+    "charge_select": "P0.13 input, no pulls; nominal 50 mA",
+    "battery_divider_enable": "P0.14 LOW",
+    "required_before_portable_release": ["USB power motor inhibit including wall chargers", "calibrated low-battery cutoff", "bounded motor output and fault behavior"]
+  },
+  "project_targets_not_manufacturer_guarantees": {
+    "total_battery_peak_mA_less_than": 120,
+    "running_VCE_V_max": 0.3,
+    "initial_motor_supply_V": 3.0,
+    "initial_motor_supply_limit_A": 0.1
+  }
+}

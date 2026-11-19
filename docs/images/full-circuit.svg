@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1170" viewBox="0 0 1700 1170" font-family="Helvetica, Arial, 'Liberation Sans', sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Spot Clicker full circuit, revision B</title>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#64748b"/>
+    </marker>
+    <style>
+      .pw { stroke:#c2410c; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round }
+      .gn { stroke:#334155; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round }
+      .sg { stroke:#1d4ed8; stroke-width:3; fill:none; stroke-linecap:round; stroke-linejoin:round }
+      .in { stroke:#94a3b8; stroke-width:1.6; fill:none }
+      .box { fill:#ffffff; stroke:#0f172a; stroke-width:2 }
+      .blk { fill:#f1f5f9; stroke:#94a3b8; stroke-width:1.2 }
+      .h { font-size:16px; font-weight:700; fill:#0f172a }
+      .t { font-size:13px; fill:#334155 }
+      .s { font-size:12px; fill:#475569 }
+      .w { font-size:12px; font-weight:700; fill:#b91c1c }
+      .pin { font-size:14px; font-weight:700; fill:#0f172a }
+      .net { font-size:14px; font-weight:700 }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="1700" height="1170" fill="#ffffff"/>
+
+  <!-- Header -->
+  <text x="48" y="58" font-size="32" font-weight="700" fill="#0f172a">Spot Clicker · full circuit (rev B)</text>
+  <text x="48" y="88" font-size="16" fill="#475569">Built from manufacturer data, 10 Nov 2026 · same topology as PRODUCT_CIRCUIT rev A · not yet built or measured</text>
+  <rect x="48" y="104" width="1604" height="40" rx="8" fill="#ecfdf5"/>
+  <text x="64" y="130" font-size="15" font-weight="700" fill="#065f46">No capacitors added (no 104). The battery plugs into the TinyCircuits ASL1201 adapter: never cut, solder or modify the pack.</text>
+
+  <!-- BT1 battery -->
+  <rect class="box" x="48" y="210" width="250" height="190" rx="10"/>
+  <text class="h" x="64" y="238" font-size="15">BT1 · TinyCircuits ASR00003</text>
+  <text class="t" x="64" y="262">3.7 V LiPo · 150 mAh</text>
+  <text class="t" x="64" y="281">max discharge 150 mA</text>
+  <text class="s" x="64" y="303">protection board inside trips at</text>
+  <text class="s" x="64" y="320">4.28 V · 2.4 V · 2.8–3.5 A</text>
+  <text class="w" x="64" y="346">JST SH plug: never cut,</text>
+  <text class="w" x="64" y="363">solder or modify the pack</text>
+  <text class="pin" x="280" y="255">+</text>
+  <text class="pin" x="281" y="366">−</text>
+
+  <!-- plug between BT1 and J1 -->
+  <line class="pw" x1="298" y1="250" x2="378" y2="250"/>
+  <line class="gn" x1="298" y1="360" x2="378" y2="360"/>
+  <path d="M326,242 l8,8 l-8,8 M338,242 l8,8 l-8,8" stroke="#0f172a" stroke-width="2" fill="none"/>
+  <path d="M326,352 l8,8 l-8,8 M338,352 l8,8 l-8,8" stroke="#0f172a" stroke-width="2" fill="none"/>
+  <text class="s" x="338" y="232" text-anchor="middle">JST SH</text>
+
+  <!-- J1 adapter -->
+  <rect class="box" x="378" y="210" width="170" height="190" rx="10" fill="#f8fafc"/>
+  <text class="h" x="392" y="238">J1 · ASL1201</text>
+  <text class="t" x="392" y="260">TinyLily Battery</text>
+  <text class="t" x="392" y="278">Adapter · to buy</text>
+  <text class="s" x="392" y="298">SH socket → 2 holes</text>
+  <text class="pin" x="538" y="345" text-anchor="end" font-size="13">VCC hole</text>
+  <text class="pin" x="392" y="390" font-size="13">GND hole</text>
+
+  <!-- J1 VCC to S1 common -->
+  <polyline class="pw" points="548,340 575,340 575,190 650,190"/>
+
+  <!-- S1 slide switch (shown OFF) -->
+  <circle cx="650" cy="190" r="5" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="742" cy="190" r="5" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="742" cy="160" r="5" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <line x1="654" y1="188" x2="737" y2="162" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <text class="s" x="756" y="165">other throw: no connection</text>
+  <text class="h" x="640" y="226">S1 · C&amp;K JS102011SAQN</text>
+  <text class="t" x="640" y="246">slide switch, SPDT · shown OFF</text>
+  <text class="t" x="640" y="264">C = common (find it with the meter)</text>
+
+  <!-- BAT_SW rail -->
+  <line class="pw" x1="747" y1="190" x2="1460" y2="190"/>
+  <text class="net" x="1040" y="179" fill="#c2410c">BAT_SW · 2.75–4.23 V (battery voltage)</text>
+  <circle cx="950" cy="190" r="5" fill="#c2410c"/>
+  <circle cx="1312" cy="190" r="5" fill="#c2410c"/>
+
+  <!-- U1 XIAO -->
+  <rect class="box" x="600" y="330" width="400" height="470" rx="12"/>
+  <text class="h" x="616" y="360" font-size="17">U1 · Seeed XIAO nRF52840</text>
+  <text class="s" x="616" y="379">plain 102010448 · inside: Seeed v1.2 design (reference)</text>
+
+  <!-- BAT+ pad wire -->
+  <line class="pw" x1="950" y1="190" x2="950" y2="330"/>
+  <text class="pin" x="940" y="304" text-anchor="end" font-size="13">U1 BAT+ (underside pad)</text>
+  <line class="in" x1="950" y1="330" x2="950" y2="395"/>
+
+  <!-- internal blocks -->
+  <rect class="blk" x="616" y="395" width="104" height="50" rx="6"/>
+  <text class="pin" x="628" y="416">USB-C</text>
+  <text class="s" x="628" y="434">5 V in</text>
+  <line class="in" x1="720" y1="420" x2="748" y2="420" marker-end="url(#arr)"/>
+  <rect class="blk" x="750" y="395" width="234" height="50" rx="6"/>
+  <text class="pin" x="762" y="416">BQ25101 charger</text>
+  <text class="s" x="762" y="434">≈50 mA · no battery temp sensing</text>
+
+  <line class="in" x1="668" y1="445" x2="668" y2="458" marker-end="url(#arr)"/>
+  <line class="in" x1="790" y1="445" x2="790" y2="458" marker-end="url(#arr)"/>
+  <rect class="blk" x="616" y="460" width="200" height="50" rx="6"/>
+  <text class="pin" x="628" y="481">Power path</text>
+  <text class="s" x="628" y="499">USB diode · battery P-FET</text>
+  <line class="in" x1="816" y1="485" x2="838" y2="485" marker-end="url(#arr)"/>
+  <rect class="blk" x="840" y="460" width="144" height="50" rx="6"/>
+  <text class="pin" x="852" y="481">3.3 V LDO</text>
+  <text class="s" x="852" y="499">SGM2040</text>
+
+  <line class="in" x1="912" y1="510" x2="912" y2="523" marker-end="url(#arr)"/>
+  <rect class="blk" x="616" y="525" width="368" height="92" rx="6"/>
+  <text class="pin" x="628" y="546">nRF52840</text>
+  <text class="s" x="628" y="565">VBUSDETECT flags any USB 5 V (even a wall charger)</text>
+  <text class="s" x="628" y="583">P0.31 reads VBAT via 1 MΩ / 510 kΩ · keep P0.14 LOW</text>
+  <text class="s" x="628" y="601">P0.13 as input → charge ≈50 mA (LOW → ≈100 mA)</text>
+
+  <text x="616" y="645" font-size="13" font-weight="700" fill="#9a3412">3V3 and 5V pins: leave unconnected</text>
+
+  <!-- U1 pins -->
+  <text class="pin" x="612" y="705" font-size="15">D1 / P0.03</text>
+  <text class="pin" x="612" y="785">GND (front pin)</text>
+  <text class="pin" x="988" y="705" text-anchor="end" font-size="15">D4 / P0.04</text>
+  <text class="s" x="988" y="723" text-anchor="end">high drive, LOW at boot</text>
+  <text class="pin" x="988" y="785" text-anchor="end" font-size="13">BAT− (underside pad)</text>
+
+  <!-- S2 button -->
+  <polyline class="sg" points="600,700 540,700 540,716"/>
+  <polyline class="gn" points="540,764 540,780 600,780"/>
+  <circle cx="540" cy="720" r="4.5" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <circle cx="540" cy="760" r="4.5" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <line x1="526" y1="712" x2="526" y2="768" stroke="#0f172a" stroke-width="3" stroke-linecap="round"/>
+  <line x1="526" y1="740" x2="508" y2="740" stroke="#0f172a" stroke-width="2"/>
+  <line x1="508" y1="731" x2="508" y2="749" stroke="#0f172a" stroke-width="2"/>
+  <text class="h" x="420" y="822" font-size="15">S2 · momentary button · to buy</text>
+  <text class="t" x="420" y="841">normally open, MX-style stem · internal pull-up</text>
+
+  <!-- driver carrier -->
+  <rect x="1030" y="230" width="640" height="655" rx="12" fill="none" stroke="#64748b" stroke-width="1.6" stroke-dasharray="7 5"/>
+  <text x="1046" y="256" font-size="15" font-weight="700" fill="#475569">Driver carrier (small perfboard)</text>
+  <text x="1046" y="275" font-size="13" fill="#64748b">R1, R2, Q1, CR1 and the GND hub</text>
+
+  <!-- D4 -> R1 -> base -->
+  <line class="sg" x1="1000" y1="700" x2="1070" y2="700"/>
+  <rect x="1070" y="690" width="80" height="20" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <text class="h" x="1070" y="680" font-size="15">R1 · 1 kΩ</text>
+  <line class="sg" x1="1150" y1="700" x2="1282" y2="700"/>
+  <circle cx="1200" cy="700" r="5" fill="#1d4ed8"/>
+
+  <!-- R2 base pull-down -->
+  <line class="sg" x1="1200" y1="700" x2="1200" y2="745"/>
+  <rect x="1190" y="745" width="20" height="70" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <line class="gn" x1="1200" y1="815" x2="1200" y2="850"/>
+  <text class="h" x="1182" y="778" font-size="15" text-anchor="end">R2 · 10 kΩ</text>
+  <text class="s" x="1182" y="796" text-anchor="end">base pull-down</text>
+
+  <!-- Q1 NPN -->
+  <circle cx="1300" cy="700" r="36" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <line x1="1282" y1="678" x2="1282" y2="722" stroke="#0f172a" stroke-width="3"/>
+  <line x1="1282" y1="690" x2="1312" y2="666" stroke="#0f172a" stroke-width="2.4"/>
+  <line x1="1282" y1="710" x2="1312" y2="734" stroke="#0f172a" stroke-width="2.4"/>
+  <path d="M1312,734 l-12,-2 l6,-8 z" fill="#0f172a"/>
+  <text class="s" x="1318" y="660">C</text>
+  <text class="s" x="1250" y="692">B</text>
+  <text class="s" x="1318" y="752">E</text>
+  <text class="h" x="1352" y="692">Q1 · onsemi PN2222ABU</text>
+  <text class="t" x="1352" y="712">NPN · TO-92</text>
+  <text class="t" x="1352" y="730">flat face toward you, legs down: E B C</text>
+
+  <!-- motor current path -->
+  <line class="pw" x1="1312" y1="190" x2="1312" y2="331"/>
+  <circle cx="1312" cy="375" r="44" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <text x="1312" y="384" font-size="24" font-weight="700" fill="#0f172a" text-anchor="middle">M</text>
+  <text class="pin" x="1362" y="346">+</text>
+  <text class="pin" x="1362" y="414">−</text>
+  <line class="pw" x1="1312" y1="419" x2="1312" y2="666"/>
+  <text class="h" x="1255" y="362" text-anchor="end">M1 · DFRobot FIT0774</text>
+  <text class="t" x="1255" y="382" text-anchor="end">1.5–4.2 V · 3 V rated</text>
+  <text class="t" x="1255" y="400" text-anchor="end">≈50 mA running at 3.00 V</text>
+
+  <!-- flyback diode -->
+  <line class="pw" x1="1460" y1="190" x2="1460" y2="345"/>
+  <line x1="1436" y1="345" x2="1484" y2="345" stroke="#0f172a" stroke-width="3"/>
+  <polygon points="1438,395 1482,395 1460,347" fill="#fff" stroke="#0f172a" stroke-width="2"/>
+  <polyline class="pw" points="1460,395 1460,560 1312,560"/>
+  <circle cx="1312" cy="560" r="5" fill="#c2410c"/>
+  <text class="h" x="1500" y="360">CR1 · 1N4148</text>
+  <text class="t" x="1500" y="380">band (cathode) → BAT_SW</text>
+  <text class="t" x="1500" y="398">flyback clamp</text>
+  <text x="1325" y="584" font-size="13" font-weight="700" fill="#9a3412">MOTOR_LOW · collector node, not GND</text>
+
+  <!-- ground return -->
+  <line class="gn" x1="1312" y1="734" x2="1312" y2="850"/>
+  <polyline class="gn" points="950,800 950,850 1312,850"/>
+  <circle cx="1200" cy="850" r="5" fill="#334155"/>
+  <polyline class="gn" points="400,400 400,920 1100,920 1100,850"/>
+  <circle cx="1100" cy="850" r="8" fill="#334155"/>
+  <text x="1112" y="874" font-size="13" font-weight="700" fill="#334155">GND hub: every return meets here</text>
+  <text class="t" x="560" y="912">battery −: one wire from the J1 GND hole to the GND hub</text>
+
+  <!-- notes -->
+  <g>
+    <rect x="48" y="955" width="392" height="148" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text class="h" x="64" y="982">Charging</text>
+    <text class="t" x="64" y="1006">Slide S1 ON, then plug in USB-C.</text>
+    <text class="t" x="64" y="1025">≈50 mA (TI limits for 2.7 kΩ: 47.8–53.7 mA).</text>
+    <text class="t" x="64" y="1044">The XIAO cannot sense battery temperature:</text>
+    <text class="t" x="64" y="1063">charge at room temperature, while watching.</text>
+    <text class="t" x="64" y="1082">Unplug if the pack gets warm, swells or smells.</text>
+
+    <rect x="452" y="955" width="392" height="148" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text class="h" x="468" y="982">When USB is plugged in</text>
+    <text class="t" x="468" y="1006">S1 OFF isolates the battery, but USB still</text>
+    <text class="t" x="468" y="1025">energizes BAT_SW through the charger.</text>
+    <text class="t" x="468" y="1044">Portable firmware keeps D4 LOW whenever</text>
+    <text class="t" x="468" y="1063">VBUSDETECT = 1. Bench builds with a separate</text>
+    <text class="t" x="468" y="1082">motor supply use an explicit bench flag.</text>
+
+    <rect x="856" y="955" width="392" height="148" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text class="h" x="872" y="982">No 104</text>
+    <text class="t" x="872" y="1006">No capacitor is installed; the XIAO keeps its</text>
+    <text class="t" x="872" y="1025">own onboard capacitors. Only if the noise test</text>
+    <text class="t" x="872" y="1044">fails: a 10 nF (103) ceramic across M1, at the</text>
+    <text class="t" x="872" y="1063">motor. Motor-maker range: 100 pF–100 nF.</text>
+    <text class="t" x="872" y="1082">Twist the motor leads; keep them short.</text>
+
+    <rect x="1260" y="955" width="392" height="148" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text class="h" x="1276" y="982">Battery limits</text>
+    <text class="t" x="1276" y="1006">Total current target: under 120 mA</text>
+    <text class="t" x="1276" y="1025">(pack maximum 150 mA).</text>
+    <text class="t" x="1276" y="1044">Proposed firmware: no buzz below 3.3 V,</text>
+    <text class="t" x="1276" y="1063">sleep below 3.0 V (pack cut-off 2.75 V;</text>
+    <text class="t" x="1276" y="1082">its protection acts only at 2.4 V).</text>
+  </g>
+
+  <text x="48" y="1150" font-size="12" fill="#64748b">Electrical schematic, not to scale. Sources, calculations and the build/test order: docs/FULL_CIRCUIT.md.</text>
+<metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo5NTlkMjZjNi03NzcwLTQxMDMtYTFlMi1jZWRjMzllNDlhMTIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaH8IEvhG8Vq5jkjRGvJrdwgAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpiNWVlNjEyMy0xY2YzLTQ5OTUtOTYxNi05MjE1ZDQzMzNjMzhscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoDb2AuF/a+u/loJvVBbfOAAAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFgg6Hzxd++Sz+BNdX30yBIsXsqvB7EF7oxIrGCHaahxjnukZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaMJiFR2LlqFEkBoSMS0MzwUAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRMAAAAAAAAAAAAAAAAZGhhc2hYIHfm4Wo+aQIsabeuzS+IVjHDelfdSqGA/sVuc0SEtJ4ZZG5hbWVuanVtYmYgbWFuaWZlc3RqZXhjbHVzaW9uc4GiZXN0YXJ0GTd7Zmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjk1OWQyNmM2LTc3NzAtNDEwMy1hMWUyLWNlZGMzOWU0OWExMi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmJmNjU0ZDNmLTI0NzQtNDE1NC05ZWJkLTJjMmZiY2MyMzQyZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCDofPF375LP4E11ffTIEixeyq8HsQXujEisYIdpqHGOe6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg1riWw5t/bRv8QcecK8KHXubvq/wyXrQ23rE5KwYhZ46iY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggTx9mr29AN5k7d4I2p2RfBbu+xZA3JEeQJTowqfxjos10Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQAJ13pOOLCURbfPXnFfRSEZyXuTcxkjv/hJW4xk114JlnIwKxYz9eZnTLm9WctkVFvKovIAz1BGxp0sNxO/T54Q=</c2pa:manifest></metadata></svg>

@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1580" height="1140" viewBox="0 0 1580 1140">
+  <title>SpotClicker existing-parts product circuit revision A</title>
+  <desc>Protected battery through slide switch to XIAO BAT plus and motor plus. XIAO D4 drives PN2222ABU base through 1k, with 10k base pulldown. Emitter to common ground, collector to motor minus. 1N4148 cathode to motor plus and anode to collector. Normally-open button connects D1 to ground. No added external capacitor. Proposed circuit, qualification pending.</desc>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#17232d;font-size:18px}
+    .small{font-size:16px}.tiny{font-size:14px}.bold{font-weight:700}.title{font-size:33px;font-weight:700}
+    .wire{fill:none;stroke:#253c49;stroke-width:3;stroke-linecap:round;stroke-linejoin:round}
+    .power{stroke:#b95026}.ground{stroke:#21606d}.control{stroke:#4657a5}
+    .part{fill:white;stroke:#253c49;stroke-width:2.5}.node{fill:#253c49}
+    .muted{fill:#526572}.warn{fill:#835114}.label{font-size:17px;font-weight:700}
+  </style>
+  <rect width="1580" height="1140" fill="#f8fafb"/>
+  <text x="48" y="55" class="title">SpotClicker · complete product connection plan</text>
+  <text x="48" y="85" class="small muted">Existing parts · revision A · 10 Nov 2026 · proposed circuit, physical qualification pending</text>
+  <rect x="48" y="106" width="1484" height="38" rx="6" fill="#fff0d9"/>
+  <text x="65" y="131" class="small warn bold">No added 104 capacitor. Battery current, driver switching and transients still require measurement.</text>
+
+  <!-- Protected battery and supported connector, both positive and negative remain protected pack outputs. -->
+  <rect x="55" y="175" width="270" height="150" rx="10" class="part"/>
+  <text x="75" y="209" class="bold">B1 · ASR00003</text>
+  <text x="75" y="237" class="small">Protected 3.7 V / 150 mAh</text>
+  <text x="75" y="263" class="small">J1 · matching SH connector</text>
+  <text x="75" y="293" class="tiny muted">Preserve pack protection and leads</text>
+  <text x="298" y="202" class="label">+</text>
+  <text x="298" y="282" class="label">−</text>
+  <path d="M325 205 H420" class="wire power"/>
+  <text x="339" y="187" class="small">BAT_RAW</text>
+  <circle cx="420" cy="205" r="5" class="part"/>
+  <circle cx="495" cy="205" r="5" class="part"/>
+  <circle cx="495" cy="170" r="5" class="part"/>
+  <path d="M425 203 L495 170" class="wire"/>
+  <path d="M500 205 H1320" class="wire power"/>
+  <text x="429" y="242" class="label">S1 · slide switch</text>
+  <text x="429" y="267" class="tiny">Common → selected ON throw</text>
+  <text x="429" y="291" class="tiny muted">Shown OFF</text>
+  <text x="520" y="178" class="tiny">Other throw: NC, insulated</text>
+  <text x="882" y="185" class="label">BAT_SW · battery voltage, not 3.3 V</text>
+  <path d="M325 280 H350 V950" class="wire ground"/>
+
+  <!-- XIAO is an existing assembled module; internal circuitry is not new wiring. -->
+  <rect x="480" y="345" width="370" height="310" rx="12" class="part"/>
+  <text x="507" y="385" class="bold">U1 · plain XIAO nRF52840</text>
+  <rect x="510" y="410" width="310" height="90" rx="6" fill="#eaf0f4"/>
+  <text x="526" y="438" class="small">Existing USB-C socket</text>
+  <text x="526" y="464" class="tiny">Onboard charger + 3.3 V regulator</text>
+  <text x="526" y="486" class="tiny">No new external charger wiring</text>
+  <path d="M760 205 V345" class="wire power"/>
+  <circle cx="760" cy="205" r="5" class="node"/>
+  <text x="703" y="332" class="label">BAT+</text>
+  <text x="495" y="547" class="label">D1 / P0.03</text>
+  <text x="710" y="547" class="label">D4 / P0.04</text>
+  <text x="505" y="588" class="tiny muted">Button uses internal pull-up</text>
+  <text x="505" y="613" class="tiny muted">D4 uses OUTPUT_S0H1</text>
+  <text x="610" y="642" class="label">BAT− / GND</text>
+  <path d="M670 655 V950" class="wire ground"/>
+
+  <!-- Input button, no permanent short to ground. -->
+  <path d="M480 540 H252 M200 540 H180 V950" class="wire control"/>
+  <circle cx="200" cy="540" r="5" class="part"/>
+  <circle cx="250" cy="540" r="5" class="part"/>
+  <path d="M203 537 L243 516 M222 500 V515" class="wire"/>
+  <text x="58" y="464" class="label">S2 · momentary button</text>
+  <text x="58" y="490" class="small">Normally open · usable part missing</text>
+  <text x="58" y="590" class="small muted">Press connects D1 to GND</text>
+
+  <!-- Base current limiting and pull-down. -->
+  <path d="M850 540 H905 M985 540 H1040 V720 H1090" class="wire control"/>
+  <rect x="905" y="527" width="80" height="26" class="part"/>
+  <text x="903" y="508" class="label">R1 · 1 kΩ</text>
+  <circle cx="1040" cy="720" r="5" class="node"/>
+  <path d="M1040 720 V801 M1040 879 V950" class="wire control"/>
+  <rect x="1027" y="801" width="26" height="78" class="part"/>
+  <text x="865" y="833" class="label">R2 · 10 kΩ</text>
+  <text x="865" y="860" class="small muted">Base pull-down</text>
+
+  <!-- Motor, collector node and flyback diode. -->
+  <path d="M1120 205 V365 M1120 455 V680" class="wire power"/>
+  <circle cx="1120" cy="205" r="5" class="node"/>
+  <circle cx="1120" cy="410" r="45" class="part"/>
+  <text x="1107" y="417" class="bold">M</text>
+  <text x="928" y="355" class="label">M1 · FIT0774</text>
+  <text x="928" y="382" class="small">+ at top, − below</text>
+  <text x="920" y="438" class="tiny muted">No capacitor added</text>
+  <path d="M1260 205 V380 M1260 430 V620 H1120" class="wire power"/>
+  <circle cx="1260" cy="205" r="5" class="node"/>
+  <path d="M1238 380 H1282 M1260 380 V392" class="wire"/>
+  <path d="M1238 430 L1260 392 L1282 430 Z" fill="#fff" stroke="#253c49" stroke-width="2.5"/>
+  <text x="1300" y="396" class="label">D1 · 1N4148</text>
+  <text x="1300" y="424" class="tiny">Band / cathode at TOP</text>
+  <text x="1300" y="447" class="tiny">Anode to MOTOR_LOW</text>
+  <circle cx="1120" cy="620" r="5" class="node"/>
+  <text x="1136" y="602" class="label">MOTOR_LOW</text>
+
+  <!-- Exact NPN low-side driver. -->
+  <circle cx="1120" cy="720" r="52" fill="#fff" stroke="#253c49" stroke-width="2.5"/>
+  <path d="M1068 720 H1090 M1120 668 V680 M1090 694 V746 M1090 707 L1120 680 M1090 733 L1120 763 V950" class="wire"/>
+  <path d="M1105 749 L1118 761 L1115 743 Z" fill="#253c49"/>
+  <text x="1060" y="700" class="small">B</text>
+  <text x="1140" y="680" class="small">C</text>
+  <text x="1140" y="786" class="small">E</text>
+  <text x="1192" y="713" class="label">Q1 · PN2222ABU</text>
+  <text x="1192" y="740" class="tiny">Exact onsemi TO-92</text>
+  <text x="1192" y="763" class="tiny">Flat face, leads down:</text>
+  <text x="1192" y="786" class="tiny bold">E — B — C, left to right</text>
+
+  <!-- Single common return; do not use the MCU ground lead as motor return. -->
+  <path d="M180 950 H1320" class="wire ground"/>
+  <circle cx="350" cy="950" r="5" class="node"/>
+  <circle cx="670" cy="950" r="5" class="node"/>
+  <circle cx="1040" cy="950" r="5" class="node"/>
+  <circle cx="1120" cy="950" r="5" class="node"/>
+  <path d="M750 950 V966 M731 966 H769 M738 974 H762 M745 982 H755" class="wire ground"/>
+  <text x="403" y="924" class="small">Common GND · motor return directly to battery-return junction</text>
+
+  <path d="M48 1005 H1532" stroke="#d7e0e6" stroke-width="2"/>
+  <text x="48" y="1037" class="small bold">S1 OFF isolates the battery. USB still powers the board. Charging requires S1 ON.</text>
+  <text x="48" y="1066" class="small">Motor must stay OFF during charging. Stock charger has no pouch-temperature sensor.</text>
+  <text x="48" y="1095" class="small muted">Read PRODUCT_CIRCUIT.md for manufacturer sources, missing connections and release checks before power-up.</text>
+  <text x="48" y="1120" class="tiny muted">Electrical schematic; component placement and wire lengths are not to scale.</text>
+</svg>

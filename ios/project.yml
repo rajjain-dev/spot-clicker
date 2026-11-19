@@ -1,0 +1,64 @@
+name: SpotClicker
+options:
+  bundleIdPrefix: com.rajjain.spotclicker
+  deploymentTarget:
+    iOS: "18.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MARKETING_VERSION: "0.1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+targets:
+  SpotClicker:
+    type: application
+    platform: iOS
+    sources:
+      - SpotClicker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rajjain.spotclicker.local
+        TARGETED_DEVICE_FAMILY: "1"
+        CODE_SIGN_STYLE: Automatic
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ENABLE_USER_SCRIPT_SANDBOXING: YES
+    info:
+      path: SpotClicker/Info.plist
+      properties:
+        CFBundleDisplayName: Spot Clicker
+        UILaunchScreen: {}
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UIBackgroundModes:
+          - bluetooth-central
+          - location
+        NSBluetoothAlwaysUsageDescription: Connect your keychain clicker to save a place with a press.
+        NSLocationWhenInUseUsageDescription: Save your current location when you tap a capture button.
+        NSLocationAlwaysAndWhenInUseUsageDescription: Save your location when you press the clicker while your iPhone is locked.
+        NSAccessorySetupKitSupports:
+          - Bluetooth
+        NSAccessorySetupBluetoothNames:
+          - SpotClicker
+        NSAccessorySetupBluetoothServices:
+          - 7A1C0001-5B3E-4D2A-9F10-3C5D8E2B6A01
+  SpotClickerUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - UITests
+    dependencies:
+      - target: SpotClicker
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.rajjain.spotclicker.uitests
+        GENERATE_INFOPLIST_FILE: YES
+schemes:
+  SpotClicker:
+    build:
+      targets:
+        SpotClicker: all
+        SpotClickerUITests: [test]
+    test:
+      targets:
+        - SpotClickerUITests
+

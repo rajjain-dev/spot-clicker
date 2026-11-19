@@ -1,0 +1,82 @@
+{
+  "assumption": "Separate detachable adapter cable, unplugged during cutting/soldering; protected pack and original leads unchanged",
+  "power": {
+    "adapter_positive": "S1 common",
+    "S1_selected_ON_throw": [
+      "j18",
+      "XIAO underside BAT+"
+    ],
+    "S1_other_throw": "unconnected, insulated",
+    "adapter_negative": [
+      "h2",
+      "XIAO underside BAT-"
+    ]
+  },
+  "board": {
+    "BAT+": "BAT_SW",
+    "BAT-": "GND",
+    "D4": "i8",
+    "3V3": "unconnected",
+    "5V": "unconnected"
+  },
+  "components": {
+    "Q1": {
+      "E": "b7",
+      "B": "b8",
+      "C": "b9"
+    },
+    "R1_1k": [
+      "d8",
+      "g8"
+    ],
+    "R2_10k": [
+      "d14",
+      "g14"
+    ],
+    "diode": {
+      "cathode_band": "g18",
+      "anode": "g22"
+    },
+    "motor": {
+      "positive": "h18",
+      "negative": "h22"
+    }
+  },
+  "fixed_jumpers": [
+    [
+      "a7",
+      "a2"
+    ],
+    [
+      "e2",
+      "f2"
+    ],
+    [
+      "j2",
+      "j14"
+    ],
+    [
+      "a8",
+      "a14"
+    ],
+    [
+      "c9",
+      "c22"
+    ],
+    [
+      "e22",
+      "f22"
+    ]
+  ],
+  "button": [
+    "XIAO D1",
+    "normally-open S2",
+    "i2 (GND)"
+  ],
+  "remove": [
+    "3V3-to-j18 wire from USB-only version",
+    "temporary i8-i18 jumper",
+    "bench supply"
+  ],
+  "status": "Proposal; unknown load/driver behavior and protective firmware remain unresolved"
+}

@@ -1,0 +1,28 @@
+.DS_Store
+.build/
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+.swiftpm/
+*.xcresult
+
+# Local working files and earlier handoff packages
+/tmp/
+/marketing-handoff/
+/HANDOFF.md
+/spot-clicker-handoff.zip
+/docs/context/
+/docs/screenshots/
+__pycache__/
+*.pyc
+
+# Credentials and device-signing files
+.env
+.env.*
+!.env.example
+*.pem
+*.p12
+*.p8
+*.mobileprovision
+

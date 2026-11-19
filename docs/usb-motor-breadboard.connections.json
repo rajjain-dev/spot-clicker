@@ -1,0 +1,67 @@
+{
+  "board": {
+    "3V3": "j18",
+    "GND": "h2",
+    "D4": "i8"
+  },
+  "components": {
+    "Q1": {
+      "E": "b7",
+      "B": "b8",
+      "C": "b9"
+    },
+    "R1_1k": [
+      "d8",
+      "g8"
+    ],
+    "R2_10k": [
+      "d14",
+      "g14"
+    ],
+    "diode": {
+      "cathode_band": "g18",
+      "anode": "g22"
+    },
+    "motor": {
+      "positive": "h18",
+      "negative": "h22"
+    }
+  },
+  "fixed_jumpers": [
+    [
+      "a7",
+      "a2"
+    ],
+    [
+      "e2",
+      "f2"
+    ],
+    [
+      "j2",
+      "j14"
+    ],
+    [
+      "a8",
+      "a14"
+    ],
+    [
+      "c9",
+      "c22"
+    ],
+    [
+      "e22",
+      "f22"
+    ]
+  ],
+  "optional_button": [
+    "XIAO D1",
+    "button",
+    "i2 (GND)"
+  ],
+  "disconnected": [
+    "battery",
+    "bench supply",
+    "temporary i8-i18 jumper"
+  ],
+  "status": "proposed wiring; physical unknowns not resolved by this drawing"
+}
